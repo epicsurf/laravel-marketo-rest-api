@@ -17,18 +17,18 @@ return [
          * Exclusive list of valid Marketo fields that may be inserted.
          */
         'valid' => [
-            'FirstName',
-            'LastName',
-            'Email',
-            'Phone',
-            'Company',
-            'Address',
-            'City',
-            'State',
-            'PostalCode',
-            'Country',
-            'Website',
-            'LeadSource',
+            'firstName',
+            'lastName',
+            'email',
+            'phone',
+            'company',
+            'address',
+            'city',
+            'state',
+            'postalCode',
+            'country',
+            'website',
+            'leadSource',
         ],
 
         /*
