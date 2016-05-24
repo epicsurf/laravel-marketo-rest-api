@@ -3,7 +3,7 @@
 namespace InfusionWeb\Laravel\Marketo;
 
 use Illuminate\Support\ServiceProvider;
-use InfusionWeb\Laravel\MarketoClient as Client;
+use InfusionWeb\Laravel\Marketo\MarketoClient;
 
 class MarketoClientProvider extends ServiceProvider
 {
@@ -36,7 +36,7 @@ class MarketoClientProvider extends ServiceProvider
     {
         $this->app->singleton('marketo', function($app)
         {
-            return new Client($app['url']);
+            return new MarketoClient($app['url']);
         });
     }
 
