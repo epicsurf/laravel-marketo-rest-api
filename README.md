@@ -57,19 +57,28 @@ $ php artisan vendor:publish --provider="InfusionWeb\Laravel\Marketo\MarketoClie
 
 You may now setup Marketo authentication and other preferences by editing the `config/marketo.php` file.
 
-## Usage
-
-### Simple case
+## Usage Example
 
 ```php
 <?php
 
 use Marketo;
 
+$fields = [
+    'email' => 'email@example.com',
+    'firstName' => 'Example',
+    'lastName' => 'User',
+];
 
+try {
+    $result = Marketo::createOrUpdateLead($fields);
+}
+catch(\InfusionWeb\Laravel\Marketo\Exceptions\MarketoClientException $e) {
+    die('We couldn’t save your information!');
+}
 ```
 
-For additional documentation, see the [original Marketo REST API Client documentation](https://github.com/dchesterton/marketo-rest-api/blob/master/README.md), as well as [Marketo's own REST API documentation](http://developers.marketo.com/documentation/rest/).
+For additional API documentation, see the [original Marketo REST API Client documentation](https://github.com/dchesterton/marketo-rest-api/blob/master/README.md), as well as [Marketo's own REST API documentation](http://developers.marketo.com/documentation/rest/).
 
 ## Credits
 
