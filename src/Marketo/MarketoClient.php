@@ -69,7 +69,7 @@ class MarketoClient
     public function getLead($id, $fields = null)
     {
         if ($fields === null) {
-            $fields = self::$fields;
+            $fields = config('marketo.fields.valid');
         }
 
         $response = $this->client->getLead($id, $fields);
@@ -97,7 +97,7 @@ class MarketoClient
     public function getLeadByCookie($cookie, $fields = null)
     {
         if ($fields === null) {
-            $fields = self::$fields;
+            $fields = config('marketo.fields.valid');
         }
 
         $response = $this->client->getLeadByFilterType('cookie', $cookie, $fields);
@@ -125,7 +125,7 @@ class MarketoClient
     public function getLeadByEmail($email, $fields = null)
     {
         if ($fields === null) {
-            $fields = self::$fields;
+            $fields = config('marketo.fields.valid');
         }
 
         $response = $this->client->getLeadByFilterType('email', $email, $fields);
