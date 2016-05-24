@@ -58,7 +58,7 @@ class MarketoClientProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/config/marketo.php' => config_path('marketo.php'),
+            __DIR__.'/../config/marketo.php' => config_path('marketo.php'),
         ]);
     }
 
