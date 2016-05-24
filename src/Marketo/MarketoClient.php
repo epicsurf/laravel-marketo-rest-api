@@ -199,7 +199,8 @@ class MarketoClient
      */
     public function createLead($lead, $lookupField = null)
     {
-        $leadFields = $this->pruneFields($lead);
+        $leadFields = config('marketo.fields.prune') ? $this->pruneFields($lead) : $lead;
+
         $response = $this->client->createLeads([$leadFields], $lookupField);
 
         if (! $response->isSuccess()) {
@@ -224,7 +225,8 @@ class MarketoClient
      */
     public function createOrUpdateLead($lead, $lookupField = null)
     {
-        $leadFields = $this->pruneFields($lead);
+        $leadFields = config('marketo.fields.prune') ? $this->pruneFields($lead) : $lead;
+
         $response = $this->client->createOrUpdateLeads([$leadFields], $lookupField);
 
         if (! $response->isSuccess()) {
@@ -249,7 +251,8 @@ class MarketoClient
      */
     public function updateLead($lead, $lookupField = null)
     {
-        $leadFields = $this->pruneFields($lead);
+        $leadFields = config('marketo.fields.prune') ? $this->pruneFields($lead) : $lead;
+
         $response = $this->client->updateLeads([$leadFields], $lookupField);
 
         if (! $response->isSuccess()) {
